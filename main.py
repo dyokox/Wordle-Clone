@@ -28,14 +28,14 @@ def wordColor(userGuess, randomWord):
 
 # function if the player wants to continue playing
 def resumeGame():
-    while True:
-        choice = input("Start again? (y/n)\n >> ").lower()
-        if choice == "y":
-            continue
-        elif choice == "n":
-            break
-        else: 
-            print("invalid choice")
+    choice = input("Start again? (y/n)\n >> ").lower()
+    if choice == "y":
+        return True
+    elif choice == "n":
+        return False
+    else:
+        print("invalid choice")
+        return resumeGame()
 
 # the actual game
 def main():
@@ -59,7 +59,7 @@ def main():
         if lives >= 5:
             print(f"You lost, the word was {randomWord}\n") 
             break
-        
+
 # making the game work        
 while True:
     main()
